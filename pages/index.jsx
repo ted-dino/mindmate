@@ -1,17 +1,6 @@
 "use client";
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import { getLocalStorageItem } from "utils/common";
-import { USER_KEY } from "utils/constants";
-import { useRouter } from "next/router";
 import FeatureCard from "components/FeatureCard";
-import { Righteous } from "next/font/google";
-
-const right = Righteous({
-  weight: "400",
-  style: ["normal"],
-  subsets: ["latin"],
-});
 
 const options = [
   {
@@ -40,15 +29,6 @@ const options = [
 ];
 
 export default function Home() {
-  const router = useRouter();
-
-  useEffect(() => {
-    const user = getLocalStorageItem(USER_KEY);
-    if (!user) {
-      router.push("/login");
-    }
-  }, []);
-
   return (
     <div className="min-h-screen">
       <Head>
@@ -61,15 +41,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/mind.svg" type="image/x-icon" />
       </Head>
-      <p
-        className={`${right.className} text-center text-bold  mt-10 text-4xl text-white`}
-      >
+      <p className={`feature text-center text-bold  mt-10 text-4xl text-white`}>
         FEATURES
       </p>
 
       <div className="flex flex-col flex-wrap items-center p-5">
         {options.map((option, index) => {
-          return <FeatureCard key={index} option={option} />;
+          return <FeatureCard key={index} index={index} option={option} />;
         })}
       </div>
     </div>

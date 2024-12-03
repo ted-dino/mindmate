@@ -48,6 +48,31 @@
   --feature-card-twitter: #1792e8;
 }
 
+h1,
+h2,
+p,
+.chatbox {
+  font-family: "Montserrat" !important;
+}
+
+.feature {
+  font-family: "Montserrat Bold" !important;
+}
+
+@font-face {
+  font-family: "Montserrat Bold";
+  src: url("../assets/fonts/montserrat-bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../assets/fonts/montserrat.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -107,7 +132,7 @@ a {
 
 .auth-form {
   width: 350px;
-  max-height: 470px;
+  max-height: 480px;
   overflow-y: auto;
   margin-top: 50px;
 }
@@ -147,14 +172,21 @@ a {
 }
 
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 0.5rem;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   outline: 1px solid slategrey;
+  border-radius: 9999px;
+  border-width: 1px;
 }
 
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 99999px;
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
